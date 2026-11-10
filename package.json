@@ -1,0 +1,74 @@
+{
+  "name": "@animeapi/ai-sdk-provider",
+  "version": "1.0.0",
+  "description": "AnimeAPI provider for the Vercel AI SDK: anime image generation with generateImage at $0.003 per image.",
+  "license": "MIT",
+  "author": "AnimeAPI <contact@animeapi.ai> (https://animeapi.ai)",
+  "homepage": "https://animeapi.ai",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/animeapi-ai/ai-sdk-provider.git"
+  },
+  "bugs": {
+    "url": "https://github.com/animeapi-ai/ai-sdk-provider/issues"
+  },
+  "keywords": [
+    "ai",
+    "ai-sdk",
+    "vercel-ai",
+    "ai-sdk-provider",
+    "anime",
+    "image-generation",
+    "text-to-image",
+    "animeapi",
+    "generateImage"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run typecheck && npm run build"
+  },
+  "dependencies": {
+    "@ai-sdk/provider": "^4.0.0",
+    "@ai-sdk/provider-utils": "^5.0.0"
+  },
+  "peerDependencies": {
+    "zod": "^3.25.76 || ^4.1.8"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "ai": "^7.0.166",
+    "tsup": "^9.0.0",
+    "typescript": "^6.0.3",
+    "zod": "^4.6.7"
+  }
+}
