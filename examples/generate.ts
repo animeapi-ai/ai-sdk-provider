@@ -7,7 +7,6 @@ const { image, providerMetadata } = await generateImage({
   model: animeapi.image("anime"), // $0.003 per image
   prompt: "a knight cat drinking tea in a sunflower field",
   aspectRatio: "16:9",
-  providerOptions: { animeapi: { allowNsfw: false } },
 });
 
 await writeFile("knight-cat.webp", image.uint8Array);

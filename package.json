@@ -1,6 +1,6 @@
 {
   "name": "@animeapi/ai-sdk-provider",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "AnimeAPI provider for the Vercel AI SDK: anime image generation with generateImage at $0.003 per image.",
   "license": "MIT",
   "author": "AnimeAPI <contact@animeapi.ai> (https://animeapi.ai)",

@@ -56,11 +56,12 @@ await generateImage({
     animeapi: {
       orientation: "landscape", // "portrait" | "square" | "landscape"; overrides size and aspectRatio
       enhance: true,            // rewrite plain English into tags for the anime model (API default: true)
-      allowNsfw: false,         // API default: true. Set false where images land in shared spaces.
     },
   },
 });
 ```
+
+AnimeAPI does not generate adult content. Explicit prompts are refused and not charged.
 
 The result's `providerMetadata.animeapi` holds `images[i].revisedPrompt` (what the model read) and `balanceUsd` (balance left after the call).
 

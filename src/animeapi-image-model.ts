@@ -20,14 +20,13 @@ export interface AnimeAPIImageProviderOptions {
   orientation?: AnimeAPIOrientation;
   /** Rewrite a plain-English prompt into tags for the anime model. API default: true. */
   enhance?: boolean;
-  /** Allow mature output. API default: true. Set false where images are shown in shared spaces. */
+  /** @deprecated Ignored by the API; adult output is not available. Kept so existing code compiles. */
   allowNsfw?: boolean;
 }
 
 const providerOptionsSchema = z.object({
   orientation: z.enum(["portrait", "square", "landscape"]).optional(),
   enhance: z.boolean().optional(),
-  allowNsfw: z.boolean().optional(),
 });
 
 const responseSchema = z.object({
@@ -118,7 +117,6 @@ export class AnimeAPIImageModel implements ImageModelV4 {
         response_format: "b64_json",
         ...(orientation ? { orientation } : {}),
         ...(animeapi?.enhance !== undefined ? { enhance: animeapi.enhance } : {}),
-        ...(animeapi?.allowNsfw !== undefined ? { allow_nsfw: animeapi.allowNsfw } : {}),
       },
       failedResponseHandler,
       successfulResponseHandler: createJsonResponseHandler(responseSchema),
